@@ -9,6 +9,7 @@ from flask import Flask
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 
 from herman.controllers.main import main
+from herman.controllers.hooks import hookserver
 from herman import assets
 from herman.models import db
 
@@ -55,5 +56,6 @@ def create_app(object_name):
 
     # register our blueprints
     app.register_blueprint(main)
+    #app.register_blueprint(hookserver)
 
     return app
