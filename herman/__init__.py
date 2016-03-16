@@ -56,6 +56,6 @@ def create_app(object_name):
 
     # register our blueprints
     app.register_blueprint(main)
-    #app.register_blueprint(hookserver)
+    app.register_blueprint(hookserver)
 
     return app
