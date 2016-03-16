@@ -20,22 +20,6 @@ def go(data, delivery):
             commit, ref, reponame
         )
     )
-    if reponame not in repodata:
-        print( '{} is not a watched repository'.format( reponame ) )
-        return "No Thanks"
-
-    print( 'This is one of mine, checking commit' )
-
-    if ref != 'refs/heads/{}'.format( repodata[reponame]['branch'] ):
-        print( 'branch {} is not built by me'.format( ref ) )
-        return 'No Thanks'
-
-    print( 'Branch {} is the build-branch- building this commit'.format(ref) )
-
-    #pp = pprint.PrettyPrinter()
-    #pp.pprint(data)
-
-    # Hand off to builder
 
     return 'Thanks'
 
