@@ -1,12 +1,17 @@
 #!/usr/bin/env python
-from flask import Blueprint,current_app
-from flask.ext.hookserver import Hooks
-#import pprint
+from flask import Blueprint, render_template
+from herman.extensions import hook
 
-repodata = {}
-repodata['atombaby/congenial-happiness'] = {}
-repodata['atombaby/congenial-happiness']['branch'] = 'master'
+hookhandler = Blueprint('hookhandler', __name__)
 
+@hookhandler.route('/hooks', methods=['POST'])
+@hook.hook('push')
+def go(data, delivery):
+    print "Data is {}".format( data )
+    print "Delivery is {}".format( delivery )
+    return render_template('push.html')
+
+'''
 hookserver = Blueprint('hooks', __name__)
 hooks = Hooks(url='/hooks')
 
@@ -42,3 +47,4 @@ def queue_task():
 
     return 'Thanks'
 
+'''

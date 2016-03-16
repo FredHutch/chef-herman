@@ -1,12 +1,18 @@
 from flask.ext.cache import Cache
 from flask.ext.debugtoolbar import DebugToolbarExtension
 from flask.ext.login import LoginManager
+from flask.ext.hookserver import Hooks
+
 from flask_assets import Environment
 
 from herman.models import User
 
 # Setup flask cache
 cache = Cache()
+
+# Setup hookserver
+
+hook = Hooks(url='/hooks')
 
 # init flask assets
 assets_env = Environment()

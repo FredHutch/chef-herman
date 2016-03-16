@@ -6,10 +6,11 @@ __email__ = 'mrg@fredhutch.org'
 __version__ = '0.1'
 
 from flask import Flask
+from flask.ext.hookserver import Hooks
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 
 from herman.controllers.main import main
-from herman.controllers.hooks import hookserver
+from herman.controllers.hookhandler import hookhandler
 from herman import assets
 from herman.models import db
 
@@ -17,7 +18,8 @@ from herman.extensions import (
     cache,
     assets_env,
     debug_toolbar,
-    login_manager
+    login_manager,
+    hook
 )
 
 
@@ -48,6 +50,9 @@ def create_app(object_name):
 
     login_manager.init_app(app)
 
+    # initialize webhooks
+    hook.init_app(app)
+
     # Import and register the different asset bundles
     assets_env.init_app(app)
     assets_loader = PythonAssetsLoader(assets)
@@ -56,6 +61,6 @@ def create_app(object_name):
 
     # register our blueprints
     app.register_blueprint(main)
-    app.register_blueprint(hookserver)
+    app.register_blueprint(hookhandler)
 
     return app
