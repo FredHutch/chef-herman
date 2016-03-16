@@ -3,12 +3,8 @@ db_file = tempfile.NamedTemporaryFile()
 
 
 class Config(object):
-    SECRET_KEY = 'secret key'
     VALIDATE_IP = False
     VALIDATE_SIGNATURE = True
-    GITHUB_WEBHOOKS_KEY = '12345'
-
-
 
 class ProdConfig(Config):
     ENV = 'prod'

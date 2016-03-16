@@ -38,6 +38,7 @@ def create_app(object_name):
     app = Flask(__name__)
 
     app.config.from_object(object_name)
+    app.config.from_object('herman.secrets.Config')
 
     # initialize the cache
     cache.init_app(app)
