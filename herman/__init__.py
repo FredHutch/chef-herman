@@ -19,7 +19,8 @@ from herman.extensions import (
     assets_env,
     debug_toolbar,
     login_manager,
-    hook
+    hook,
+    redis_store
 )
 
 
@@ -53,6 +54,9 @@ def create_app(object_name):
 
     # initialize webhooks
     hook.init_app(app)
+
+    # Intialize redis
+    redis_store.init_app(app)
 
     # Import and register the different asset bundles
     assets_env.init_app(app)

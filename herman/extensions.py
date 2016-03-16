@@ -2,6 +2,7 @@ from flask.ext.cache import Cache
 from flask.ext.debugtoolbar import DebugToolbarExtension
 from flask.ext.login import LoginManager
 from flask.ext.hookserver import Hooks
+from flask.ext.redis import FlaskRedis
 
 from flask_assets import Environment
 
@@ -13,6 +14,10 @@ cache = Cache()
 # Setup hookserver
 
 hook = Hooks(url='/hooks')
+
+# Setup Redis Queue
+
+redis_store = FlaskRedis()
 
 # init flask assets
 assets_env = Environment()
