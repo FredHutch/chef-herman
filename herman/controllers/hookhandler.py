@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from flask import Blueprint, render_template
 from herman.extensions import hook
+from herman.extensions import redis_store
 
 hookhandler = Blueprint('hookhandler', __name__)
 
@@ -20,6 +21,7 @@ def go(data, delivery):
             commit, ref, reponame
         )
     )
+    redis_store.lpush( 'queue:work', (commit, ref, reponame ) )
 
     return 'Thanks'
 

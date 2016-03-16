@@ -11,6 +11,7 @@ from webassets.loaders import PythonLoader as PythonAssetsLoader
 
 from herman.controllers.main import main
 from herman.controllers.hookhandler import hookhandler
+from herman.controllers.workqueue import workqueue
 from herman import assets
 from herman.models import db
 
@@ -65,7 +66,8 @@ def create_app(object_name):
         assets_env.register(name, bundle)
 
     # register our blueprints
-    app.register_blueprint(main)
-    app.register_blueprint(hookhandler)
+    app.register_blueprint( main )
+    app.register_blueprint( hookhandler )
+    app.register_blueprint( workqueue )
 
     return app
