@@ -9,15 +9,7 @@ hookhandler = Blueprint('hookhandler', __name__)
 def go(data, delivery):
     print "Data is {}".format( data )
     print "Delivery is {}".format( delivery )
-    return render_template('push.html')
 
-'''
-hookserver = Blueprint('hooks', __name__)
-hooks = Hooks(url='/hooks')
-
-@hookserver.route('/hooks', methods=['POST'])
-@hooks.hook('push')
-def queue_task():
     commit, ref, reponame = [
         data['head_commit']['id'],
         data['ref'],
@@ -47,4 +39,3 @@ def queue_task():
 
     return 'Thanks'
 
-'''
