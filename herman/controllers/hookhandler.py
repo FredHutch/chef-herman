@@ -21,7 +21,7 @@ def go(data, delivery):
             commit, ref, reponame
         )
     )
-    redis_store.lpush( 'queue:work', (commit, ref, reponame ) )
+    redis_store.lpush( 'herman', (commit, ref, reponame ) )
 
     return 'Thanks'
 

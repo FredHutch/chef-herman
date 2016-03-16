@@ -1,7 +1,14 @@
 {%block title%}Queue Length{% endblock %}
 
 {%block body%}
-    <div class="qlength">
-        <p>length of queue is {{ qlength }}</p>
+    <div class="queue_length">
+        <p>Queue has {{ qlength }} items</p>
+    </div>
+    <div class="queue">
+    <ol>
+    {% for q in queue %}
+        <li>{{ q }}</li>
+    {% endfor %}
+    </ol>
     </div>
 {%endblock%}
