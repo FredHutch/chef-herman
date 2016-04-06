@@ -1,3 +1,12 @@
+# Herman
+
+`Herman` is an agent that accepts push [webhooks](https://developer.github.com/webhooks/) from a github repository, placing data about the push onto a [Redis](http://redis.io) list for processing by other agents.
+
+This application is based on [Flask](http://flask.pocoo.org/) and used Jack Stouffer's [Flask Foundation](https://jackstouffer.github.io/Flask-Foundation/) using the [bootstrapy project](https://github.com/kirang89/bootstrapy) to build its core.
+
+
+Below here is the rest of the original readme, saved until it's not necessary.
+
 #Flask Foundation
 [![Build Status](https://travis-ci.org/JackStouffer/Flask-Foundation.png)](https://travis-ci.org/JackStouffer/Flask-Foundation)
 
