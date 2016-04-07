@@ -1,4 +1,4 @@
-.PHONY: docs test
+.PHONY: docs test deps env
 
 help:
 	@echo "  env         create a development environment using virtualenv"
