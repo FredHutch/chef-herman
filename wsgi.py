@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 
+import sys
 import os
+#from os import path as op
+#from os import environ
 
-from flask.ext.script import Manager, Server
-from flask.ext.script.commands import ShowUrls, Clean
 from herman import create_app
-from herman.models import db, User
 
-# default to dev config because no one should use this in
-# production anyway
+
+APPROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), 'herman'))
+if not APPROOT in sys.path:
+    sys.path.insert(0, APPROOT)
+
 env = os.environ.get('HERMAN_ENV', 'dev')
-app = create_app('herman.settings.%sConfig' % env.capitalize())
-
-if __name__ == "__main__":
-    app.run()
+application = create_app('herman.settings.%sConfig' % env.capitalize())
 
