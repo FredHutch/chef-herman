@@ -2,8 +2,6 @@
 
 import sys
 import os
-#from os import path as op
-#from os import environ
 
 from herman import create_app
 
